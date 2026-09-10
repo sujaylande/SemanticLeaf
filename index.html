@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loose Leaf — a folderless memory vault</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="site-header">
+    <h1>Loose&nbsp;Leaf</h1>
+    <p class="tagline">Drop anything in. It finds its own pile.</p>
+    <div class="model-status" id="modelStatus" aria-live="polite">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Waking up the local model…</span>
+    </div>
+  </header>
+
+  <section class="capture" aria-label="Add a new note">
+    <div class="capture-card">
+      <textarea id="captureInput" placeholder="Paste a link, jot a thought, drop a quote… anything." rows="3"></textarea>
+      <div class="capture-row">
+        <span class="capture-hint" id="captureHint"></span>
+        <button id="saveBtn" class="btn btn-primary" disabled>Save</button>
+      </div>
+    </div>
+
+    <div class="suggestion-panel hidden" id="suggestionPanel">
+      <p class="suggestion-label" id="suggestionLabel">This looks like it belongs in:</p>
+      <div class="suggestion-controls">
+        <select id="clusterSelect"></select>
+        <input type="text" id="newClusterName" class="hidden" placeholder="Name this new pile…">
+      </div>
+      <div class="tag-preview" id="tagPreview"></div>
+      <div class="suggestion-actions">
+        <button id="confirmSaveBtn" class="btn btn-primary">Confirm &amp; file it</button>
+        <button id="cancelSaveBtn" class="btn btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="view-tabs" role="tablist">
+    <button class="tab-btn active" data-view="browse" role="tab" aria-selected="true">All piles</button>
+    <button class="tab-btn" data-view="search" role="tab" aria-selected="false">Search</button>
+  </nav>
+
+  <section id="view-browse" class="view">
+    <div id="clusterList" class="cluster-list"></div>
+    <p class="empty-state hidden" id="browseEmpty">Nothing saved yet. Whatever you drop above will start your first pile.</p>
+  </section>
+
+  <section id="view-search" class="view hidden">
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="Type any related word…">
+      <button id="searchBtn" class="btn btn-primary">Search</button>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-actions">
+      <button id="exportBtn" class="btn btn-ghost">Export backup</button>
+      <label class="btn btn-ghost file-label">
+        Import backup
+        <input type="file" id="importInput" accept="application/json" hidden>
+      </label>
+    </div>
+    <p class="footer-note">Everything stays on this device, in this browser. Nothing is uploaded anywhere.</p>
+  </footer>
+
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
