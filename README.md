@@ -21,20 +21,6 @@ Your notes never leave your browser.
   browser's IndexedDB, tied to whatever URL you open this at. It is **not**
   synced anywhere by default (see Backups below).
 
-## Hosting this on GitHub Pages
-
-1. Create a new GitHub repository and push these three files
-   (`index.html`, `style.css`, `app.js`) to it.
-2. In the repo, go to **Settings → Pages**.
-3. Under "Build and deployment", set **Source** to "Deploy from a branch",
-   pick your default branch and the `/ (root)` folder, then save.
-4. GitHub will give you a URL like `https://yourname.github.io/repo-name/`.
-   Open it — the first load will take a moment while the model downloads.
-
-You can also just open `index.html` directly from your own computer
-(double-click it) without hosting it anywhere. It works the same way, it'll
-just only be on that one device/browser.
-
 ## Using it
 
 - **Add:** type or paste anything into the box at the top and hit Save (or
